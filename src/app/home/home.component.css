@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.graph-container{
+
+  /*width: 60%;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 900px;
+}
+
+.bottom_spiner{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  height: 50px;
+  width: 50px;
+
+}

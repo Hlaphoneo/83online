@@ -1,0 +1,108 @@
+<div layout="row" class="main-container">
+  <mat-toolbar class="mat-elevation-z4">
+    <mat-toolbar-row>
+        <div class="logo"></div>
+       <span class="example-spacer"></span>
+       <button mat-button class="login">Sign in</button>
+       <button mat-button class="signup">Sign up</button>
+       <button mat-icon-button class="menu-small" [matMenuTriggerFor]="menu"><mat-icon style="color:#243949;">list</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><mat-icon style="color:#243949;">list</mat-icon>Sign up</button>
+        <button mat-menu-item><mat-icon style="color:#243949;">list</mat-icon>Sign in</button>
+      </mat-menu>
+
+       <!-- <p> Log in</p>
+       <p class="signup">Sign Up </p> -->
+     </mat-toolbar-row>
+  </mat-toolbar>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 strech" style="background-color:#243949" no-float>
+              <h1 class="home-message" align="center">Get the tech job you've <br> always wanted</h1>
+              <h1 class="home-message2" align="center">The job hunt doesn’t need to be hard work, on OfferZen companies apply to you.</h1>
+              <button mat-button class="apply-button"><h4>Browse Jobs!</h4></button>
+
+            </div>
+            <div class="col-xs-12 col-md-6 strech" no-float>
+              <!-- <mat-card class="apply">
+                <h2>Government jobs simplified!</h2>
+                <mat-list role="list">
+                  <mat-list-item role="listitem" >- Reach 550+ companies at once</mat-list-item>
+                  <mat-list-item role="listitem" style="margin-top:-15px">- Manage your job search from one place</mat-list-item>
+                  <mat-list-item role="listitem" style="margin-top:-15px">- Choose who to hide your profile from</mat-list-item>
+                </mat-list>
+                <br />
+                <hr style="opacity:0.6">
+                <br>
+              </mat-card> -->
+              <mat-grid-list cols="3" rowHeight="3:1" class="logos">
+                <mat-grid-tile class="logo1"></mat-grid-tile>
+                <mat-grid-tile class="logo2"></mat-grid-tile>
+                <mat-grid-tile class="logo3"></mat-grid-tile>
+              </mat-grid-list>
+              <hr>
+            </div>
+        </div>
+    </div>
+
+
+  <!-- <div class="section-1">
+    <div class="left-container">
+      <h1 class="home-message">Get the tech job you've <br> always wanted</h1>
+      <p class="home-message2">The job hunt doesn’t need to be hard work, on OfferZen companies apply to you.</p>
+    </div>
+
+      <mat-card class="apply">
+        <h2>Government jobs simplified!</h2>
+        <mat-list role="list">
+          <mat-list-item role="listitem" >- Reach 550+ companies at once</mat-list-item>
+          <mat-list-item role="listitem" style="margin-top:-15px">- Manage your job search from one place</mat-list-item>
+          <mat-list-item role="listitem" style="margin-top:-15px">- Choose who to hide your profile from</mat-list-item>
+        </mat-list>
+        <br />
+        <hr style="opacity:0.6">
+        <br>
+        <button mat-button class="apply-button">Browse Jobs!</button>
+      </mat-card>
+  </div> -->
+</div>
+
+<!-- <footer id="myFooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h2 class="logo"></h2>
+            </div>
+            <div class="col-sm-2">
+                <h5>Get started</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sign up</a></li>
+                    <li><a href="#">Downloads</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-2">
+              <h5>About us</h5>
+              <ul>
+                  <li><a href="#">Company Information</a></li>
+                  <li><a href="#">Contact us</a></li>
+                  <li><a href="#">Reviews</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+                <div class="social-networks">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                </div>
+                <button type="button" class="btn btn-default">Contact us</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2017 Copyright Text </p>
+    </div>
+</footer> -->
