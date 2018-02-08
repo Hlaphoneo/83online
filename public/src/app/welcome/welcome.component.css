@@ -1,0 +1,58 @@
+.logo{
+  height: 100px;
+  width:100px;
+  margin-top: 10%;
+  font-weight: 300 !important;
+}
+
+.title{
+  margin-top: -5px;
+  color: #00D6C7;
+}
+
+.name{
+  color:white;
+  opacity: 0.4;
+  margin: 6%;
+}
+
+.message{
+  font-weight: 200;
+  opacity: 0.6;
+  color:white;
+  padding: 4px;
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.button-continue{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 2%;
+  background-color: #DD4F43;
+  color: white;
+}
+
+.welcome{
+  background-color: #161719;
+  min-height: 100vh;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+}
+
+.info{
+  color:white;
+  opacity: 0.8;
+  font-weight: 300;
+  padding: 4px 4px 4px 4px ;
+  font-size: 16px;
+}

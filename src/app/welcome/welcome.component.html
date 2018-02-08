@@ -3,12 +3,37 @@
     <mat-toolbar-row>
         <div class="logo"></div>
        <span class="example-spacer"></span>
-       <button mat-button class="login">Sign in</button>
-       <button mat-button class="signup">Sign up</button>
+       <button mat-button [matMenuTriggerFor]="departments" class="departments">departments<mat-icon style="margin-left:5px;">keyboard_arrow_down</mat-icon></button>
+        <mat-menu #departments="matMenu" >
+          <button mat-menu-item>Basic Education</button>
+          <button mat-menu-item>Communication</button>
+          <button mat-menu-item>Energy</button>
+          <button mat-menu-item>Public Works</button>
+          <button mat-menu-item>Government Communication and Information System</button>
+          <button mat-menu-item>Health</button>
+          <button mat-menu-item>Higher Education and Training </button>
+          <button mat-menu-item>Tourism</button>
+          <button mat-menu-item>Labour</button>
+          <button mat-menu-item>Transport</button>
+          <button mat-menu-item>Cooperative Governance</button>
+          <button mat-menu-item>Small Business Development</button>
+
+
+
+
+
+
+
+
+
+
+        </mat-menu>
+       <button mat-button class="login" (click)="navigate('login')">Sign in</button>
+       <button mat-button class="signup" (click)="navigate('signup')">Sign up</button>
        <button mat-icon-button class="menu-small" [matMenuTriggerFor]="menu"><mat-icon style="color:#243949;">list</mat-icon></button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item><mat-icon style="color:#243949;">list</mat-icon>Sign up</button>
-        <button mat-menu-item><mat-icon style="color:#243949;">list</mat-icon>Sign in</button>
+      <mat-menu #menu="matMenu" class="small-menu">
+        <button mat-menu-item (click)="navigate('login')"><mat-icon style="color:#243949;">account_circle</mat-icon>Sign in</button>
+        <button mat-menu-item (click)="navigate('signup')"><mat-icon style="color:#243949;">insert emoticon</mat-icon>Sign up</button>
       </mat-menu>
 
        <!-- <p> Log in</p>
@@ -18,53 +43,113 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6 strech" style="background-color:#243949" no-float>
-              <h1 class="home-message" align="center">Get the tech job you've <br> always wanted</h1>
-              <h1 class="home-message2" align="center">The job hunt doesn’t need to be hard work, on OfferZen companies apply to you.</h1>
-              <button mat-button class="apply-button"><h4>Browse Jobs!</h4></button>
+              <h1 align="center" class="counter">8450 </h1><h4 align="center" style="color:#D98D36">Available Jobs.</h4>
+              <h1 class="home-message" align="center">Amajobs, Central registry for government jobs<br></h1>
+              <h1 class="home-message2" align="center">The jub hunt simplified, Government applies to you, and you have to do is to register and wait.</h1>
+              <!-- <button mat-button class="apply-button"><h4>Browse Jobs!</h4></button> -->
 
+              <div align="center" style="margin-top:60px">
+                <form id="searchthis"  style="" method="get">
+                <input id="namanyay-search-box" name="q" size="40" type="text" placeholder="Search by date "/>
+                <input id="namanyay-search-btn" value="Search" type="submit"/>
+                </form>
+              </div>
             </div>
             <div class="col-xs-12 col-md-6 strech" no-float>
-              <!-- <mat-card class="apply">
-                <h2>Government jobs simplified!</h2>
-                <mat-list role="list">
-                  <mat-list-item role="listitem" >- Reach 550+ companies at once</mat-list-item>
-                  <mat-list-item role="listitem" style="margin-top:-15px">- Manage your job search from one place</mat-list-item>
-                  <mat-list-item role="listitem" style="margin-top:-15px">- Choose who to hide your profile from</mat-list-item>
-                </mat-list>
-                <br />
-                <hr style="opacity:0.6">
-                <br>
-              </mat-card> -->
               <mat-grid-list cols="3" rowHeight="3:1" class="logos">
                 <mat-grid-tile class="logo1"></mat-grid-tile>
                 <mat-grid-tile class="logo2"></mat-grid-tile>
                 <mat-grid-tile class="logo3"></mat-grid-tile>
               </mat-grid-list>
               <hr>
+              <div class="jobs-container">
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+                <mat-card class="card">
+                  <span><span style="margin-left:10px;">POST 05/11</span><span style="float:right;margin-right:10px;"> REF NO: ADFI/01/2018</span></span>
+                  <h5><strong>ASSISTANT DIRECTOR: FINANCE INFRASTRUCTURE</strong></h5>
+                  <h6><strong>SALARY : R334 545 per annum</strong></h6>
+                  <h6><strong>CENTRE : Polokwane</strong></h6>
+                  <h6><strong>REQUIREMENTS:</strong><br><br>Bachelor’s Degree or National Diploma in Finance or Commerce or Accounting or Economics. Valid Driver’s Licence. Computer literate. Three years ‘relevant experience post qualification.</h6>
+                  <h6><strong>DUTIES :</strong><br><br> The incumbent of the post will assist with the coordination of all Financial Management functions Extract, analyse and validate financial information for infrastructure projects/programmes. Provide financial administration services for all infrastructure Programmes and Projects. Prepare financial reports. Provide budget administration services. Update and maintain a document management system for all financial documentation.</h6>
+                  <h6><strong>ENQUIRIES :</strong><br><br> Enquiries regarding applications: Ms J Masipa 012 357 3295/ Ms N Monyela 012 357 3294 Enquiries regarding posts: Mr PL Swanepoel 015 290 7881/Mr MT Senyatsi 015 290 7772</h6>
+                  <h6><strong>NOTE :</strong><br><br> The successful candidate will sign an annual performance agreement, annually disclose his/her financial interests and be subjected to a security clearance. Short-listed candidates may be required to make a presentation to the interview panel, as well as undergo a writing test.</h6>
+                </mat-card>
+
+
+
+              </div>
             </div>
         </div>
     </div>
-
-
-  <!-- <div class="section-1">
-    <div class="left-container">
-      <h1 class="home-message">Get the tech job you've <br> always wanted</h1>
-      <p class="home-message2">The job hunt doesn’t need to be hard work, on OfferZen companies apply to you.</p>
-    </div>
-
-      <mat-card class="apply">
-        <h2>Government jobs simplified!</h2>
-        <mat-list role="list">
-          <mat-list-item role="listitem" >- Reach 550+ companies at once</mat-list-item>
-          <mat-list-item role="listitem" style="margin-top:-15px">- Manage your job search from one place</mat-list-item>
-          <mat-list-item role="listitem" style="margin-top:-15px">- Choose who to hide your profile from</mat-list-item>
-        </mat-list>
-        <br />
-        <hr style="opacity:0.6">
-        <br>
-        <button mat-button class="apply-button">Browse Jobs!</button>
-      </mat-card>
-  </div> -->
 </div>
 
 <!-- <footer id="myFooter">

@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'app';
 
   constructor(public rest : RestService, public router : Router){
-      this.router.navigate(["/welcome"])
+      this.router.navigate(["/Welcome"])
   }
 
 }
