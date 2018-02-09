@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import { EventsModule } from 'angular4-events';
 import {MatSnackBar} from '@angular/material';
 
+import {Router} from '@angular/router';
+
 
 // import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
@@ -13,7 +15,7 @@ import {MatSnackBar} from '@angular/material';
 export class AuthenticationService {
   user: Observable<firebase.User>;
 
-  constructor(public snackBar : MatSnackBar , public events : EventsModule , private firebaseAuth: AngularFireAuth) {
+  constructor(public router : Router , public snackBar : MatSnackBar , public events : EventsModule , private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
   }
 
@@ -26,6 +28,7 @@ export class AuthenticationService {
   }
    emailAuthenticate (email: string, password: string) : any {
      return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password).then(value => {
+       this.router.navigate(['/home'])
        return "successes"
       }).catch(err => {
         switch (err.code) {
@@ -33,7 +36,7 @@ export class AuthenticationService {
             this.openSnackBar("Invalid email","OK")
             break;
           case "auth/user-not-found":
-            this.openSnackBar("Email not registered","OK")
+            this.openSnackBar("User not registered","OK")
             break;
           case "auth/wrong-password":
             this.openSnackBar("Wrong password!","OK")

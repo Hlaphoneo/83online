@@ -10,7 +10,7 @@ export class AccountService {
    }
 
    signin(email : string , password : string){
-     return this.auth.emailAuthenticate(email,password);
+      this.auth.emailAuthenticate(email,password);
    }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 import { AccountService } from '../services/account.service';
 import {MatSnackBar} from '@angular/material';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +10,15 @@ import {MatSnackBar} from '@angular/material';
 })
 export class LoginComponent implements OnInit {
 
-  email     : any;
-  password  : any;
-  regex =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  emailError:any;
-  passwordError:any;
-  loginEvent : any;
-  constructor( public snackBar: MatSnackBar,public account : AccountService) {
+  email           :any;
+  password        :any;
+  regex           =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  emailError      :any;
+  passwordError   :any;
+  loginEvent      :any;
 
+
+  constructor(public router : Router, public snackBar: MatSnackBar,public account : AccountService) {
 
 
    }
@@ -26,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   }
   signin(){
-
     let emailValidation = false;
     let passwordValidation = false;
       if(!this.regex.test(this.email)){
@@ -65,10 +65,20 @@ export class LoginComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-  this.snackBar.open(message, action, {
-    duration: 2000,
-  });
-}
+      this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+  navigate(location : string){
+
+    if(location == "home")
+        this.router.navigate(["/welcome"])
+    if(location == "sign_up")
+        this.router.navigate(["/users/sign_up"])
+
+  }
+
 }
 
 

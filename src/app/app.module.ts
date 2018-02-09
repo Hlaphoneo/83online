@@ -51,15 +51,18 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // =============================================================================== Global variables ================================================================================
 
 
 const appRoutes: Routes = [
 {path: 'welcome', component: WelcomeComponent},
-{path: 'Home', component: HomeComponent},
+{path: 'home', component: HomeComponent},
+{ path: '',   redirectTo: 'welcome', pathMatch: 'full' },
 {path: 'users/sign_in', component: LoginComponent},
-{path: 'users/sign_up', component: SignupComponent}
+{path: 'users/sign_up', component: SignupComponent},
+{ path: '**', component: PageNotFoundComponent }
 ];
 
 
@@ -82,7 +85,8 @@ export const firebaseConfig = {
     WelcomeComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

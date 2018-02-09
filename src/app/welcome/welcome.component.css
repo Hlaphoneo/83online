@@ -73,31 +73,25 @@ color: #D98D36
 .logo1{
   background: url("/assets/img1.png");
   background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: grayscale(100%);
-  opacity: 0.4
-
 }
 .logo2{
   background: url("/assets/img2.png");
   background-size: 30%;
-  max-width: 310px;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: grayscale(100%);
-  opacity: 0.4
 
 }
 .logo3{
   background: url("/assets/img3.png");
   background-size: 60%;
+}
+
+.logo1,.logo2,.logo3{
   background-position: center;
   background-repeat: no-repeat;
-  filter: grayscale(100%);
+  filter: grayscale(80%);
   opacity: 0.4
 
 }
+
 
 app-welcome{
   display: none;
@@ -165,8 +159,6 @@ app-welcome{
   top: 0;
   margin-top: 50px;
   margin-left: 8%;
-  /*background-color: black;*/
-
 }
 .strech{
   height: 100%;
@@ -181,12 +173,12 @@ app-welcome{
     padding: 50px 0 0 0; /*set left/right padding according to needs*/
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    position: fixed;
 }
 
 .row
 {
-    height: 100vh;
-    display: table-row;
+    height: 100%;
 }
 @media (min-width: 992px) {
   .row .no-float {
@@ -197,6 +189,11 @@ app-welcome{
 
 
 @media (max-width: 613px) {
+
+  .container{
+    position: relative;
+  }
+
   .menu-small{
     display: block;
   }
@@ -221,22 +218,27 @@ app-welcome{
   /*position: fixed;*/
   overflow-y: scroll;
   position: relative;
-  height: 100vh;
+  height: 75vmin;
   margin-top: -10px;
 
 }
 .card{
-  margin-top: 5px;
+  margin-top: 10px;
   width: 98%;
+    opacity: 1;
+    cursor: pointer;
+    border-left: 20px !important;
+    margin-left: 5px;
+    border-color: black !important;
 
 }
 .card:hover{
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .card > span {
   width: 100% !important;
-  margin-left: -23px;
+  margin-left: -25px;
   flex: 1 1 auto;
   background-color: #BDBDBD;
   top:0;

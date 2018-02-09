@@ -98,6 +98,8 @@ mat-toolbar-row{
   top: 0;
   margin-top: 50px;
   margin-left: 8%;
+  cursor: pointer;
+
   /*background-color: black;*/
 
 }
