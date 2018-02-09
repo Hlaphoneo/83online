@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
+import { AccountService } from '../services/account.service';
 
 
 @Component({
@@ -8,11 +9,11 @@ import { RestService } from '../services/rest.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  constructor(public account : AccountService) {
 
   }
 
-  ngOnInit() {
+  signOut(){
+    this.account.signOut();
   }
-
 }

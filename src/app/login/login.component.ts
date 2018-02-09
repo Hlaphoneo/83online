@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
 
 
   constructor(public router : Router, public snackBar: MatSnackBar,public account : AccountService) {
-
-
    }
 
   ngOnInit() {

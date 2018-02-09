@@ -12,5 +12,10 @@ export class AccountService {
    signin(email : string , password : string){
       this.auth.emailAuthenticate(email,password);
    }
-
+   signOut(){
+      this.auth.signOut();
+   }
+   startAuth(){
+     this.auth.authStateChange(); //listening for login state changes
+   }
 }

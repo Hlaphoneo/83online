@@ -17,6 +17,7 @@ export class AuthenticationService {
 
   constructor(public router : Router , public snackBar : MatSnackBar , public events : EventsModule , private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
+    // this.authStateChange();
   }
 
   emailSignup(email: string, password: string) {
@@ -26,7 +27,7 @@ export class AuthenticationService {
         console.log('Something went wrong:',err.message);
       });
   }
-   emailAuthenticate (email: string, password: string) : any {
+  emailAuthenticate (email: string, password: string) : any {
      return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password).then(value => {
        this.router.navigate(['/home'])
        return "successes"
@@ -48,9 +49,24 @@ export class AuthenticationService {
         }
       });
   }
-  singOut() {
-    this.firebaseAuth  .auth  .signOut();
+  signOut() {
+    console.log('out')
+    this.firebaseAuth.auth.signOut();
+
   }
+
+  authStateChange(){
+    this.firebaseAuth.auth
+    .onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        console.log(user)
+        this.router.navigateByUrl('/home');
+        } else {
+        }
+    }
+  }
+
 
   openSnackBar(message: string, action: string) {
   this.snackBar.open(message, action, {

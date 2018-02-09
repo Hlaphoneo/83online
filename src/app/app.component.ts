@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RestService } from './services/rest.service';
+import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 
 
@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'app';
 
-  constructor(public rest : RestService, public router : Router){
+  constructor(public auth : AuthenticationService , public router : Router){
+      // this.auth.checkLogin();
       // this.router.navigate(["/home"])
   }
+  ngOnInit(){ this.auth.authStateChange();}
 
 }

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import {MatTableModule} from '@angular/material/table';
 
@@ -34,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AppComponent } from './app.component';
 
 
 // ================================================================================ Material design ================================================================================
@@ -59,7 +59,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const appRoutes: Routes = [
 {path: 'welcome', component: WelcomeComponent},
 {path: 'home', component: HomeComponent},
-{ path: '',   redirectTo: 'welcome', pathMatch: 'full' },
+{path: 'e4aryZC0DD8rt4', component: AppComponent},
+{ path: '',   redirectTo: 'e4aryZC0DD8rt4', pathMatch: 'full' },
 {path: 'users/sign_in', component: LoginComponent},
 {path: 'users/sign_up', component: SignupComponent},
 { path: '**', component: PageNotFoundComponent }
