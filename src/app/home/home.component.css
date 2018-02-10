@@ -1,5 +1,5 @@
 mat-toolbar{
-  background-color: white;
+  background-color: #202426 !important;
   width: 100%;
   padding: 0;
   margin-top: -8px;
@@ -8,6 +8,7 @@ mat-toolbar{
   min-height:90px;
   margin-left: 0px;
   z-index: 1;
+  box-shadow: none;
 }
 mat-toolbar-row{
   /*display: none;*/
@@ -16,7 +17,11 @@ mat-toolbar-row{
 
 .login,.signup{
   margin-top: 25px;
+    color: white;
+    background-color: #2C2F32;
 }
+
+
 
 .logo1:hover {
       filter: grayscale(1%);
@@ -31,6 +36,15 @@ mat-toolbar-row{
   opacity: 0.8;
 }
 
+.logo1{
+  background: url("/assets/img1.png");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+  opacity: 0.4
+
+}
 .logo1{
   background: url("/assets/img1.png");
   background-size: 60%;
@@ -77,7 +91,22 @@ mat-toolbar-row{
 
 .example-spacer {
   flex: 1 1 auto;
+
 }
+
+.right-button{
+  float:right;
+  display: block;
+  margin-right: 20px;
+  margin-top: 25px;
+  background-color: #E0E0E0;
+  color: white
+}
+
+/*.spacer{
+    right: 0;
+    margin-right: -40px;
+}*/
 .signup{
   margin-left: 20px;
   margin-right: 10%;
@@ -98,9 +127,20 @@ mat-toolbar-row{
   margin-top: 50px;
   margin-left: 8%;
   cursor: pointer;
+}
 
-  /*background-color: black;*/
 
+.card1{
+  background: url("/assets/form/card1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 80px;
+  width: 110px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block
 }
 
 .strech{
@@ -114,22 +154,28 @@ mat-form-field{
 
 .container
 {
-    height: 100%;
-    display:table;
+    height: 100vmin;
     width: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding-left: 0px;
     padding-right: 0px;
+    background-color: #EEF3F6;
     /*position: fixed;*/
     /*position: fixed;*/
 }
 
-.row
-{
-    height: 100vh;
-    display: table-row;
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 10px;
 }
+
+.example-full-width {
+  width: 100%;
+}
+
 @media (min-width: 992px) {
   .row .no-float {
       display: table-cell;
@@ -173,12 +219,14 @@ mat-form-field{
   margin-top: 10%;
 }
 
-.signin-card{
-  max-width: 450px;
-  margin-top: 5%;
+.card{
+  max-width: 60%;
+  margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  max-width: 600px;
+  /*bottom: 40px;*/
 }
 
 .form-style-7{
@@ -310,4 +358,57 @@ mat-form-field{
   /*background-color: red !important;*/
   color: red !important;
   display:none;
+}
+
+
+.progress{
+  color: white !important;
+  height: 6px;
+}
+
+.mat-progress-bar-element {
+  color: #3b9ac4 !important;
+  display: none;
+}
+
+@import ~compass-mixins/lib/compass;
+
+input:focus{
+    border-width: 2px;
+}
+
+input{
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #E4EBEF;
+  height: 35px;
+  border-style: solid;
+  width: 100%;
+  padding: 10px;
+  /*box-shadow: none;*/
+  /*shad*/
+}
+
+.form{
+  margin-left: 20px;
+}
+
+label {
+  /*width: 150px;*/
+  display: block;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+.mat-select{
+  margin-top:10px;
+}
+
+
+/*=================================== multiform ==================================*/
+
+.contact,.contact2,.contact3,.idnumber,.disability,
+.cmrecord,.dismiss,.basic_contact,.physical,
+.preferred,.postal,.matric,.qualifications,.government,.experience,.reference,.finish{
+  display: none;
 }

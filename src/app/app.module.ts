@@ -52,12 +52,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 // =============================================================================== Global variables ================================================================================
 
 
 const appRoutes: Routes = [
-{path: 'welcome', component: WelcomeComponent},
+{path: 'e4aryZC0DD8rt4', component: WelcomeComponent},
 {path: 'home', component: HomeComponent},
 {path: 'e4aryZC0DD8rt4', component: AppComponent},
 { path: '',   redirectTo: 'e4aryZC0DD8rt4', pathMatch: 'full' },
@@ -101,11 +106,16 @@ export const firebaseConfig = {
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
+    MatNativeDateModule,
     MatCheckboxModule,
     MatGridListModule,
+    MatDatepickerModule,
     MatListModule,
     MatSnackBarModule,
+    MatCheckboxModule,
+    MatProgressBarModule,
     MatToolbarModule,
+    MatSelectModule,
     MatCardModule,
     FormsModule,
     MatTableModule,

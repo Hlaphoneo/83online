@@ -12,9 +12,7 @@ export class AppComponent {
   title = 'app';
 
   constructor(public auth : AuthenticationService , public router : Router){
-      // this.auth.checkLogin();
-      // this.router.navigate(["/home"])
   }
-  ngOnInit(){ this.auth.authStateChange();}
+  // ngOnInit(){ this.auth.authStateChange();}
 
 }

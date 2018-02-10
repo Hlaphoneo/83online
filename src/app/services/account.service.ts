@@ -15,7 +15,4 @@ export class AccountService {
    signOut(){
       this.auth.signOut();
    }
-   startAuth(){
-     this.auth.authStateChange(); //listening for login state changes
-   }
 }

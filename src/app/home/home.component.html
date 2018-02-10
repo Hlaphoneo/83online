@@ -1,22 +1,528 @@
+
 <div layout="row" class="main-container">
+    <mat-toolbar class="mat-elevation-z4">
+      <mat-toolbar-row>
+          <div class="logo" (click)="navigate('home')" ></div>
+         <span class="example-spacer"></span>
+         <button mat-button class="signup" (click)="signOut()"><mat-icon style="color:#3B9AC4;margin-right:10px;">account_circle</mat-icon> Sign out</button>
+       </mat-toolbar-row>
+    </mat-toolbar>
+  <div class="container">
+                        <mat-progress-bar mode="determinate" color="warn" value={{percent}} class="progress"></mat-progress-bar>
+                          <div class="basic_info">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">First name</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Last name</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+                                          <label for="name">Race</label>
+                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                      </div>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('basic_info')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                          <div class="idnumber">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                          <label for="name">Please enter your ID number.</label>
+                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                      </div>
+                                  </div>
+                                  <button mat-button class="signup"  (click)="next('idnumber')" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('idnumber')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                          <div class="disability">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <div class="row">
+                                            <div class="col-xs-12 ">
+                                              <label for="name">Do you have a disability ?</label>
 
-<mat-toolbar class="mat-elevation-z4">
-  <mat-toolbar-row>
-      <div class="logo" (click)="navigate('home')" ></div>
-     <span class="example-spacer"></span>
-     <!-- <button mat-button class="login" (click)="navigate('login')">Sign in</button> -->
-     <button mat-button class="signup" (click)="signOut()">Sign out</button>
-     <!-- <button mat-icon-button class="menu-small" [matMenuTriggerFor]="menu"><mat-icon style="color:#243949;">list</mat-icon></button> -->
-    <!-- <mat-menu #menu="matMenu">
-      <button mat-menu-item><mat-icon style="color:#243949;">account_circle</mat-icon>Sign in</button>
-      <button mat-menu-item><mat-icon style="color:#243949;">list</mat-icon>Sign out</button>
-    </mat-menu> -->
+                                                <mat-select placeholder="Please select">
+                                                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                    {{ food.viewValue }}
+                                                  </mat-option>
+                                                </mat-select>
 
-     <!-- <p> Log in</p>
-     <p class="signup">Sign Up </p> -->
-   </mat-toolbar-row>
-</mat-toolbar>
-<div class="container">
+                                            </div>
 
-</div>
+                                        </div>
+                                      </div>
+                                  </div>
+
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('disability')" > Next</button>
+                                </div>
+                              </mat-card>
+                            </div>
+                          <div class="cmrecord">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-12">
+                                              <label for="name">Are you a South African citizen ?</label>
+                                                <mat-select placeholder="Please select">
+                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                    {{ Yesorno.viewValue }}
+                                                  </mat-option>
+                                                </mat-select>
+                                              <label for="name">Do you have a work permit ?</label>
+                                                <mat-select placeholder="Please select">
+                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                    {{ Yesorno.viewValue }}
+                                                  </mat-option>
+                                                </mat-select>
+                                              <label for="name">Do you have a criminal record ?</label>
+                                                <mat-select placeholder="Please select">
+                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                    {{ Yesorno.viewValue }}
+                                                  </mat-option>
+                                                </mat-select>
+
+                                            </div>
+
+                                        </div>
+                                      </div>
+                                  </div>
+
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('cmrecord')" > Next</button>
+                                </div>
+                              </mat-card>
+                            </div>
+                          <div class="dismiss">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-12">
+                                              <label for="name">Have you ever been dismissed from employment ?</label>
+                                                <mat-select placeholder="Please select">
+                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                    {{ Yesorno.viewValue }}
+                                                  </mat-option>
+                                                </mat-select>
+                                            </div>
+
+                                        </div>
+                                      </div>
+                                  </div>
+
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('dismiss')" > Next</button>
+                                </div>
+                              </mat-card>
+                            </div>
+                          <div class="basic_contact">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                  <div class="form">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-6">
+                                          <label for="name">Phone</label>
+                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        </div>
+                                        <div class="col-xs-12 col-md-6">
+                                          <label for="name">Home telephone (optional)</label>
+                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        </div>
+                                    </div>
+                                      <label for="name">Fax (optional)</label>
+                                      <input type="text" name="name" id="name" value="" tabindex="1" />
+                                  </div>
+                                  </div>
+
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('basic_contact')" > Next</button>
+                                </div>
+                              </mat-card>
+                            </div>
+                          <div class="preferred">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                  <div class="form">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                          <label for="name">Preferred method of communication ?</label>
+                                            <mat-select placeholder="Please select">
+                                              <mat-option *ngFor="let X of methodOfComm" [value]="X.value">
+                                                {{ X.viewValue }}
+                                              </mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  </div>
+
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('preferred')" > Next</button>
+                                </div>
+                              </mat-card>
+                            </div>
+                          <!-- <div class="disabilit2">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Phone</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Home telephone</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+                                        <label for="name">Email</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <label for="name">Fax</label>
+                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+
+                                      </div>
+                                  </div>
+
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('contact')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div> -->
+                          <div class="physical">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <label for="name">Address line 1</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <label for="name">Address line 2</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">City</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Province</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+
+                                        <label for="name">Zip Code</label>
+                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <br>
+                                        <br>
+                                        <span style="margin-top:20px"><mat-checkbox ><span style="opacity:0.7">Physical address same as postal address</span></mat-checkbox></span>
+                                      </div>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('physical')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                          <div class="postal">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <label for="name">Address line 1</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <label for="name">Address line 2</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">City</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Province</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+
+                                        <label for="name">Zip Code</label>
+                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <br>
+                                        <br>
+                                      </div>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('postal')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+
+                        <div class="matric">
+                            <mat-card class="card">
+                              <div class="card1"></div><br>
+                              <h4 align="center" style="opacity:0.8"><strong>Education</strong></h4>
+                              <hr>
+                              <div class="row" style="width:100% !important">
+                              <div class="col-12" >
+                                    <div class="form">
+                                      <div class="row">
+                                          <div class="col-xs-12 col-md-12">
+                                            <label for="name">Did you complete your matric ?</label>
+                                              <mat-select placeholder="Please select">
+                                                <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                  {{ Yesorno.viewValue }}
+                                                </mat-option>
+                                              </mat-select>
+                                          </div>
+
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                <button mat-button class="right-button" (click)="next('matric')" > Next</button>
+                              </div>
+                            </mat-card>
+                          </div>
+
+
+                          <div class="qualifications">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Education</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <span style="margin-top:20px"><mat-checkbox ><span style="opacity:0.7">I don't have qualifications</span></mat-checkbox></span>
+
+                                        <!-- <label for="name">Address line 2</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" /> -->
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Institution</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Qualification</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+
+                                        <label for="name">Year obtained</label>
+                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <br>
+                                        <br>
+                                      </div>
+                                      <span class="expand"><button type="button" name="button" style="background:none;float:right;border:none;"><mat-icon style="margin-right:10px;margin-right:20px;border-radius:15px;background-color:#8CC63E">add</mat-icon></button></span>
+                                      <br>
+                                      <br>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('qualifications')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                        <div class="government">
+                            <mat-card class="card">
+                              <div class="card1"></div><br>
+                              <h4 align="center" style="opacity:0.8"><strong>Work Experience</strong></h4>
+                              <hr>
+                              <div class="row" style="width:100% !important">
+                              <div class="col-12" >
+                                    <div class="form">
+                                      <div class="row">
+                                          <div class="col-xs-12 col-md-12">
+                                            <label for="name">Are you currently holding a government position ?</label>
+                                              <mat-select placeholder="Please select">
+                                                <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                  {{ Yesorno.viewValue }}
+                                                </mat-option>
+                                              </mat-select>
+                                            <label for="name">Are you currently available for employment ?</label>
+                                              <mat-select placeholder="Please select">
+                                                <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                  {{ Yesorno.viewValue }}
+                                                </mat-option>
+                                              </mat-select>
+                                          </div>
+
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <button mat-button class="signup" style="opacity:0">Sign out</button>
+                                <button mat-button class="right-button" (click)="next('government')" > Next</button>
+                              </div>
+                            </mat-card>
+                          </div>
+                          <div class="experience">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Work Experience</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <span style="margin-top:20px"><mat-checkbox ><span style="opacity:0.7">I don't have work experience.</span></mat-checkbox></span>
+
+                                        <!-- <label for="name">Address line 2</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" /> -->
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Employer</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Position</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+
+                                        <label for="name">Total years</label>
+                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <br>
+                                        <br>
+                                      </div>
+                                      <span class="expand"><button type="button" name="button" style="background:none;float:right;border:none;"><mat-icon style="margin-right:10px;margin-right:20px;border-radius:15px;background-color:#8CC63E">add</mat-icon></button></span>
+                                      <br>
+                                      <br>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('experience')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                          <div class="reference">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>References</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <div class="form">
+                                        <!-- <label for="name">Address line 2</label>
+                                        <input type="text" name="name" id="name" value="" tabindex="1" /> -->
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Name</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                              <label for="name">Occupation</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                            </div>
+                                        </div>
+
+                                        <label for="name">Contact</label>
+                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <br>
+                                        <br>
+                                      </div>
+                                      <span class="expand"><button type="button" name="button" style="background:none;float:right;border:none;"><mat-icon style="margin-right:10px;margin-right:20px;border-radius:15px;background-color:#8CC63E">add</mat-icon></button></span>
+                                      <br>
+                                      <br>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('reference')" > Next</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                          <div class="finish">
+                              <mat-card class="card">
+                                <div class="card1"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Declaration</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <h5 align="center" style="line-height: 20px;opacity:0.6">
+                                          <strong>
+                                          I declare that all the information provided (including any attachments) is complete and
+                                          correct to the best of my knowledge. I understand that any false information supplied
+                                          could lead to my application being disqualified or my discharge if I am appointed.
+                                          </strong>
+                                      </h5>
+                                      <span style="margin-top:20px !important;float:right;display:block;margin-right:25px !important"><mat-checkbox ><span style="opacity:0.8">I declear</span></mat-checkbox></span>
+                                      <br>
+                                      <br>
+                                      <br>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important ; margin-right:10px">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('reference')" > Finish</button>
+                                </div>
+                              </mat-card>
+                        </div>
+                          <div class="dashboard">
+                              <mat-card class="card">
+                                <div class="card1" style="margin-top:-60px;"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Declaration</strong></h4>
+                                <hr>
+                                <div class="row" style="width:100% !important">
+                                <div class="col-12" >
+                                      <h5 align="center" style="line-height: 20px;opacity:0.6">
+                                          <strong>
+                                          I declare that all the information provided (including any attachments) is complete and
+                                          correct to the best of my knowledge. I understand that any false information supplied
+                                          could lead to my application being disqualified or my discharge if I am appointed.
+                                          </strong>
+                                      </h5>
+                                      <span style="margin-top:20px !important;float:right;display:block;margin-right:25px !important"><mat-checkbox ><span style="opacity:0.8">I declear</span></mat-checkbox></span>
+                                      <br>
+                                      <br>
+                                      <br>
+                                  </div>
+                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important ; margin-right:10px">Sign out</button>
+                                  <button mat-button class="right-button" (click)="next('dashboard')" > Finish</button>
+                                </div>
+                              </mat-card>
+                        </div>
+
+    </div>
 </div>

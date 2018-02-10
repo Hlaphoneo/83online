@@ -13,6 +13,10 @@ mat-toolbar-row{
   /*display: none;*/
   width: 100%;
 }
+/*
+.emailinput:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}*/
 
 .login,.signup{
   margin-top: 25px;
@@ -296,13 +300,7 @@ mat-form-field{
 }
 
 
-.input{
-  font-size: 14px !important;
-  color: #7c7c80;
-  font-family: 'Montserrat', sans-serif !important;
-  padding: 10px !important;
-  padding-bottom: 18px !important;
-}
+
 
 .sign-text{
   font-family: 'Montserrat', sans-serif !important;
@@ -313,4 +311,16 @@ mat-form-field{
   /*background-color: red !important;*/
   color: red !important;
   display:none;
+}
+
+input{
+  font-size: 14px !important;
+  color: #7c7c80 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 10px !important;
+  padding-bottom: 18px !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
 }

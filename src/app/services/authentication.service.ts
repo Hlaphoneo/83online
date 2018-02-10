@@ -52,20 +52,9 @@ export class AuthenticationService {
   signOut() {
     console.log('out')
     this.firebaseAuth.auth.signOut();
-
+    this.router.navigateByUrl('/e4aryZC0DD8rt4');
   }
 
-  authStateChange(){
-    this.firebaseAuth.auth
-    .onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in.
-        console.log(user)
-        this.router.navigateByUrl('/home');
-        } else {
-        }
-    }
-  }
 
 
   openSnackBar(message: string, action: string) {
