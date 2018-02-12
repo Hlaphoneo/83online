@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {RestService} from './services/rest.service';
 import {AuthenticationService} from './services/authentication.service';
 import {AccountService} from './services/account.service';
+import {UserdataService} from './services/userdata.service';
 
 
 // ================================================================================ Modules ================================================================================
@@ -34,6 +35,8 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 // ================================================================================ Material design ================================================================================
@@ -57,6 +60,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
 
 // =============================================================================== Global variables ================================================================================
 
@@ -67,6 +71,7 @@ const appRoutes: Routes = [
 {path: 'e4aryZC0DD8rt4', component: AppComponent},
 { path: '',   redirectTo: 'e4aryZC0DD8rt4', pathMatch: 'full' },
 {path: 'users/sign_in', component: LoginComponent},
+{path: 'dashboard', component: DashboardComponent},
 {path: 'users/sign_up', component: SignupComponent},
 { path: '**', component: PageNotFoundComponent }
 ];
@@ -92,7 +97,8 @@ export const firebaseConfig = {
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -115,6 +121,7 @@ export const firebaseConfig = {
     MatCheckboxModule,
     MatProgressBarModule,
     MatToolbarModule,
+    MatListModule,
     MatSelectModule,
     MatCardModule,
     FormsModule,
@@ -126,7 +133,7 @@ export const firebaseConfig = {
     EventsModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [RestService,AuthenticationService,AccountService],
+  providers: [RestService,AuthenticationService,AccountService,UserdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

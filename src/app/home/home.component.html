@@ -8,31 +8,31 @@
        </mat-toolbar-row>
     </mat-toolbar>
   <div class="container">
-                        <mat-progress-bar mode="determinate" color="warn" value={{percent}} class="progress"></mat-progress-bar>
+                        <mat-progress-bar mode="determinate" color="warn" value={{percent}} class="progress" style="opacity:0.8"></mat-progress-bar>
                           <div class="basic_info">
                               <mat-card class="card">
                                 <div class="card1"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
-                                        <div class="row">
+                                        <div class="row" style="100%">
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">First name</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value={{userData.profile.about.firstName}} [(ngModel)]="userData.profile.about.firstName" tabindex="1" />
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Last name</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value="userData.profile.about.lastName" tabindex="1" [(ngModel)]="userData.profile.about.lastName" />
                                             </div>
                                         </div>
                                           <label for="name">Race</label>
-                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                          <input type="text" name="name" id="name" value="userData.profile.about.race" tabindex="1" [(ngModel)]="userData.profile.about.race"/>
                                       </div>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('basic_info')" > Next</button>
+                                  <button mat-button class="signup" style="opacity:0" >Sign out</button>
+                                  <button mat-button class="right-button" (click)="update('about','basic_info')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
@@ -41,15 +41,25 @@
                                 <div class="card1"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
+                                        <label for="name">Gender</label>
+
+                                          <mat-select placeholder="Please select"  [(ngModel)]="userData.profile.about.gender">
+                                            <mat-option *ngFor="let Gender of gender" [value]="Gender.value">
+                                              {{ Gender.viewValue }}
+                                            </mat-option>
+                                          </mat-select>
+                                          <br>
+                                          <br>
+                                          <br>
                                           <label for="name">Please enter your ID number.</label>
-                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                          <input type="text" name="name" id="name" value="userData.profile.about.id" tabindex="1"   [(ngModel)]="userData.profile.about.id"/>
                                       </div>
                                   </div>
-                                  <button mat-button class="signup"  (click)="next('idnumber')" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('idnumber')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('idnumber')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('about','idnumber')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
@@ -58,16 +68,16 @@
                                 <div class="card1"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
                                         <div class="row">
                                             <div class="col-xs-12 ">
                                               <label for="name">Do you have a disability ?</label>
 
-                                                <mat-select placeholder="Please select">
-                                                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                                                    {{ food.viewValue }}
+                                                <mat-select placeholder="Please select"  [(ngModel)]="userData.profile.about.disability">
+                                                  <mat-option *ngFor="let dis of disability" [value]="dis.value">
+                                                    {{ dis.viewValue }}
                                                   </mat-option>
                                                 </mat-select>
 
@@ -77,8 +87,8 @@
                                       </div>
                                   </div>
 
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('disability')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('disability')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('about','disability')" > Next</button>
                                 </div>
                               </mat-card>
                             </div>
@@ -87,29 +97,30 @@
                                 <div class="card1"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-12">
+                                              <label for="name">Do you have a criminal record ?</label>
+                                                <mat-select placeholder="Please select" [(ngModel)]="userData.profile.about.criminalRecord">
+                                                  <mat-option *ngFor="let Yesorno of cmrecord" [value]="Yesorno.value" >
+                                                    {{ Yesorno.viewValue }}
+                                                  </mat-option>
+                                                </mat-select>
                                               <label for="name">Are you a South African citizen ?</label>
-                                                <mat-select placeholder="Please select">
-                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                <mat-select placeholder="Please select" [(ngModel)]="userData.profile.about.citizen">
+                                                  <mat-option *ngFor="let Yesorno of citizen" [value]="Yesorno.value" >
                                                     {{ Yesorno.viewValue }}
                                                   </mat-option>
                                                 </mat-select>
                                               <label for="name">Do you have a work permit ?</label>
-                                                <mat-select placeholder="Please select">
-                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                                <mat-select placeholder="Please select"  [(ngModel)]="userData.profile.about.workPermit">
+                                                  <mat-option *ngFor="let Yesorno of permit" [value]="Yesorno.value">
                                                     {{ Yesorno.viewValue }}
                                                   </mat-option>
                                                 </mat-select>
-                                              <label for="name">Do you have a criminal record ?</label>
-                                                <mat-select placeholder="Please select">
-                                                  <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
-                                                    {{ Yesorno.viewValue }}
-                                                  </mat-option>
-                                                </mat-select>
+
 
                                             </div>
 
@@ -117,8 +128,8 @@
                                       </div>
                                   </div>
 
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('cmrecord')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('cmrecord')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('about','cmrecord')" > Next</button>
                                 </div>
                               </mat-card>
                             </div>
@@ -127,13 +138,13 @@
                                 <div class="card1"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-12">
                                               <label for="name">Have you ever been dismissed from employment ?</label>
-                                                <mat-select placeholder="Please select">
+                                                <mat-select placeholder="Please select" [(ngModel)]="userData.profile.about.dismissed">
                                                   <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
                                                     {{ Yesorno.viewValue }}
                                                   </mat-option>
@@ -144,51 +155,51 @@
                                       </div>
                                   </div>
 
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('dismiss')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('dismiss')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('about','dismiss')" > Next</button>
                                 </div>
                               </mat-card>
                             </div>
                           <div class="basic_contact">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card2"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                   <div class="form">
                                     <div class="row">
                                         <div class="col-xs-12 col-md-6">
                                           <label for="name">Phone</label>
-                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                          <input type="text" name="name" id="name" value="userData.profile.about.phone" tabindex="1" [(ngModel)]="userData.profile.contact.phone"/>
                                         </div>
                                         <div class="col-xs-12 col-md-6">
                                           <label for="name">Home telephone (optional)</label>
-                                          <input type="text" name="name" id="name" value="" tabindex="1" />
+                                          <input type="text" name="name" id="name" value="userData.profile.about.home" tabindex="1"  [(ngModel)]="userData.profile.contact.home"/>
                                         </div>
                                     </div>
                                       <label for="name">Fax (optional)</label>
-                                      <input type="text" name="name" id="name" value="" tabindex="1" />
+                                      <input type="text" name="name" id="name" value="userData.profile.about.fax" tabindex="1" [(ngModel)]="userData.profile.contact.fax"/>
                                   </div>
                                   </div>
 
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('basic_contact')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('basic_contact')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('contact','basic_contact')" > Next</button>
                                 </div>
                               </mat-card>
                             </div>
                           <div class="preferred">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card2"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                   <div class="form">
                                     <div class="row">
                                         <div class="col-xs-12 col-md-12">
                                           <label for="name">Preferred method of communication ?</label>
-                                            <mat-select placeholder="Please select">
+                                            <mat-select placeholder="Please select"  [(ngModel)]="userData.profile.contact.preferred">
                                               <mat-option *ngFor="let X of methodOfComm" [value]="X.value">
                                                 {{ X.viewValue }}
                                               </mat-option>
@@ -198,124 +209,94 @@
                                   </div>
                                   </div>
 
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('preferred')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('preferred')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('contact','preferred')" > Next</button>
                                 </div>
                               </mat-card>
                             </div>
-                          <!-- <div class="disabilit2">
-                              <mat-card class="card">
-                                <div class="card1"></div><br>
-                                <h4 align="center" style="opacity:0.8"><strong>About you</strong></h4>
-                                <hr>
-                                <div class="row" style="width:100% !important">
-                                <div class="col-12" >
-                                      <div class="form">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-6">
-                                              <label for="name">Phone</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
-                                            </div>
-                                            <div class="col-xs-12 col-md-6">
-                                              <label for="name">Home telephone</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
-                                            </div>
-                                        </div>
-                                        <label for="name">Email</label>
-                                        <input type="text" name="name" id="name" value="" tabindex="1" />
-                                        <label for="name">Fax</label>
-                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
 
-                                      </div>
-                                  </div>
-
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('contact')" > Next</button>
-                                </div>
-                              </mat-card>
-                        </div> -->
                           <div class="physical">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card2"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
                                         <label for="name">Address line 1</label>
-                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <input type="text" name="name" id="name" value="userData.profile.contact.physical.line1" tabindex="1"  [(ngModel)]="userData.profile.contact.physical.line1"/>
                                         <label for="name">Address line 2</label>
-                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <input type="text" name="name" id="name" value="userData.profile.contact.physical..line2" tabindex="1"  [(ngModel)]="userData.profile.contact.physical.line2"/>
                                         <div class="row">
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">City</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value="userData.profile.contact.physical.zipCode.city" tabindex="1"  [(ngModel)]="userData.profile.contact.physical.city" />
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Province</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value="userData.profile.contact.physical.province" tabindex="1"  [(ngModel)]="userData.profile.contact.physical.province"/>
                                             </div>
                                         </div>
 
                                         <label for="name">Zip Code</label>
-                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <input type="email" name="name" id="name" value="userData.profile.contact.physical.zipCode" tabindex="1"   [(ngModel)]="userData.profile.contact.physical.zipCode" />
                                         <br>
                                         <br>
-                                        <span style="margin-top:20px"><mat-checkbox ><span style="opacity:0.7">Physical address same as postal address</span></mat-checkbox></span>
+                                        <span style="margin-top:20px"><mat-checkbox [(ngModel)]="userData.profile.contact.physical.phySame" ><span style="opacity:0.7">Physical address same as postal address</span></mat-checkbox></span>
                                       </div>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('physical')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('physical')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('contact','physical')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
                           <div class="postal">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card2"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Contact</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
                                         <label for="name">Address line 1</label>
-                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <input type="text" name="name" id="name" value="userData.profile.contact.postal.line1" tabindex="1"  [(ngModel)]="userData.profile.contact.postal.line1"/>
                                         <label for="name">Address line 2</label>
-                                        <input type="text" name="name" id="name" value="" tabindex="1" />
+                                        <input type="text" name="name" id="name" value="userData.profile.contact.postal.line2" tabindex="1"  [(ngModel)]="userData.profile.contact.postal.line2" />
                                         <div class="row">
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">City</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value="userData.profile.contact.postal.city" tabindex="1" [(ngModel)]="userData.profile.contact.postal.city" />
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Province</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value="userData.profile.contact.postal.province" tabindex="1" [(ngModel)]="userData.profile.contact.postal.province" />
                                             </div>
                                         </div>
 
                                         <label for="name">Zip Code</label>
-                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <input type="email" name="name" id="name" value="userData.profile.contact.postal.zipCode" tabindex="1"   [(ngModel)]="userData.profile.contact.postal.zipCode"  />
                                         <br>
                                         <br>
                                       </div>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('postal')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('postal')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('contact','postal')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
 
                         <div class="matric">
                             <mat-card class="card">
-                              <div class="card1"></div><br>
+                              <div class="card1 card3"></div><br>
                               <h4 align="center" style="opacity:0.8"><strong>Education</strong></h4>
                               <hr>
-                              <div class="row" style="width:100% !important">
+                              <div class="row" style="width:100% !important ;margin-left:-7px">
                               <div class="col-12" >
                                     <div class="form">
                                       <div class="row">
                                           <div class="col-xs-12 col-md-12">
                                             <label for="name">Did you complete your matric ?</label>
-                                              <mat-select placeholder="Please select">
+                                              <mat-select placeholder="Please select" [(ngModel)]="userData.profile.education.matric">
                                                 <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
                                                   {{ Yesorno.viewValue }}
                                                 </mat-option>
@@ -326,8 +307,8 @@
                                     </div>
                                 </div>
 
-                                <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                <button mat-button class="right-button" (click)="next('matric')" > Next</button>
+                                <button mat-button class="back"  (click)="back('matric')">Previous</button>
+                                <button mat-button class="right-button" (click)="update('education','matric')" > Next</button>
                               </div>
                             </mat-card>
                           </div>
@@ -335,60 +316,75 @@
 
                           <div class="qualifications">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card3"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Education</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
-                                        <span style="margin-top:20px"><mat-checkbox ><span style="opacity:0.7">I don't have qualifications</span></mat-checkbox></span>
+
+
+                                        <span style="margin-top:20px"><mat-checkbox class="qualifications" (click)="viewUpdate('education')" [(ngModel)]="this.userData.profile.education.qualif" ><span style="opacity:0.7">I don't have qualifications</span></mat-checkbox></span>
+                                        <br>
+                                        <br>
+                                        <mat-list-item role="listitem" *ngFor="let entry of userData.profile.education.qualifications;let i=index">
+                                          <!-- <mat-icon style="margin-top:-40px">offline_pin</mat-icon> -->
+                                          <span style="opacity:0.7;color:red"><strong> - {{entry.institution}} , {{entry.name}} , {{entry.yearObtained}}.</strong></span>
+                                          <br>
+
+                                        </mat-list-item>
+                                        <br>
+                                        <br>
 
                                         <!-- <label for="name">Address line 2</label>
                                         <input type="text" name="name" id="name" value="" tabindex="1" /> -->
                                         <div class="row">
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Institution</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" class="education" value="" tabindex="1" [(ngModel)]="this.userData.qualifications.institution"/>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Qualification</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name"  class="education"value="" tabindex="1" [(ngModel)]="this.userData.qualifications.name"/>
                                             </div>
                                         </div>
 
                                         <label for="name">Year obtained</label>
-                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <input type="email" name="name" id="name"  class="education" value="" tabindex="1"   [(ngModel)]="this.userData.qualifications.yearObtained" />
                                         <br>
                                         <br>
                                       </div>
-                                      <span class="expand"><button type="button" name="button" style="background:none;float:right;border:none;"><mat-icon style="margin-right:10px;margin-right:20px;border-radius:15px;background-color:#8CC63E">add</mat-icon></button></span>
+                                      <button mat-button  class="education edu-button" style="width:100%;background-color:#00CCED;color:white;bottom:0;margin-left:16px;" align="center" (click)="addQualification()"> ADD QUALIFICATION</button>
+
                                       <br>
                                       <br>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('qualifications')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('qualifications')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('education','qualifications')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
                         <div class="government">
                             <mat-card class="card">
-                              <div class="card1"></div><br>
+                              <div class="card1 card4"></div><br>
                               <h4 align="center" style="opacity:0.8"><strong>Work Experience</strong></h4>
                               <hr>
-                              <div class="row" style="width:100% !important">
+                              <div class="row" style="width:100% !important ;margin-left:-7px">
                               <div class="col-12" >
+                                <mat-list role="list">
+                                </mat-list>
                                     <div class="form">
                                       <div class="row">
                                           <div class="col-xs-12 col-md-12">
                                             <label for="name">Are you currently holding a government position ?</label>
-                                              <mat-select placeholder="Please select">
-                                                <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                              <mat-select placeholder="Please select" [(ngModel)]="userData.profile.workExp.question1">
+                                                <mat-option *ngFor="let Yesorno of government" [value]="Yesorno.value">
                                                   {{ Yesorno.viewValue }}
                                                 </mat-option>
                                               </mat-select>
                                             <label for="name">Are you currently available for employment ?</label>
-                                              <mat-select placeholder="Please select">
-                                                <mat-option *ngFor="let Yesorno of yesorno" [value]="Yesorno.value">
+                                              <mat-select placeholder="Please select" [(ngModel)]="userData.profile.workExp.question2">
+                                                <mat-option *ngFor="let Yesorno of employment" [value]="Yesorno.value">
                                                   {{ Yesorno.viewValue }}
                                                 </mat-option>
                                               </mat-select>
@@ -398,128 +394,130 @@
                                     </div>
                                 </div>
 
-                                <button mat-button class="signup" style="opacity:0">Sign out</button>
-                                <button mat-button class="right-button" (click)="next('government')" > Next</button>
+                                <button mat-button class="back"  (click)="back('government')">Previous</button>
+                                <button mat-button class="right-button" (click)="update('work','government')" > Next</button>
                               </div>
                             </mat-card>
                           </div>
                           <div class="experience">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card4"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Work Experience</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
-                                        <span style="margin-top:20px"><mat-checkbox ><span style="opacity:0.7">I don't have work experience.</span></mat-checkbox></span>
+                                        <span style="margin-top:20px"><mat-checkbox (click) = "viewUpdate('work')" [(ngModel)]="this.userData.profile.workExp.hasExperience" ><span style="opacity:0.7">I don't have work experience.</span></mat-checkbox></span>
+                                        <mat-list-item role="listitem" *ngFor="let entry of userData.profile.workExp.experience;let i=index">
+                                          <!-- <mat-icon style="margin-top:-40px">offline_pin</mat-icon> -->
+                                          <span style="opacity:0.7;color:red"><strong> - {{entry.employer}} , {{entry.position}} , {{entry.totalYears}}.</strong></span>
+                                          <br>
 
+                                        </mat-list-item>
                                         <!-- <label for="name">Address line 2</label>
                                         <input type="text" name="name" id="name" value="" tabindex="1" /> -->
                                         <div class="row">
+
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Employer</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" class="work" value="" tabindex="1" [(ngModel)]="userData.workExp.employer" />
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Position</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" class="work"  value="" tabindex="1" [(ngModel)]="userData.workExp.position"  />
                                             </div>
                                         </div>
 
                                         <label for="name">Total years</label>
-                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
+                                        <input type="email" name="name" class="work"  value="" tabindex="1"  [(ngModel)]="userData.workExp.totalExp"   />
                                         <br>
                                         <br>
                                       </div>
-                                      <span class="expand"><button type="button" name="button" style="background:none;float:right;border:none;"><mat-icon style="margin-right:10px;margin-right:20px;border-radius:15px;background-color:#8CC63E">add</mat-icon></button></span>
+                                      <button mat-button class="button-work" style="width:100%;background-color:#00CCED;color:white;bottom:0;margin-left:16px;" align="center" (click)="addWorkExperience()"> ADD WORK EXPERIENCE</button>
                                       <br>
                                       <br>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('experience')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('experience')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('work','experience')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
                           <div class="reference">
-                              <mat-card class="card">
-                                <div class="card1"></div><br>
+                              <mat-card class="card ">
+                                <div class="card1 card5"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>References</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <div class="form">
-                                        <!-- <label for="name">Address line 2</label>
-                                        <input type="text" name="name" id="name" value="" tabindex="1" /> -->
+                                        <mat-list-item role="listitem" *ngFor="let entry of userData.profile.references.list;let i=index">
+                                          <!-- <mat-icon style="margin-top:-40px">offline_pin</mat-icon> -->
+                                          <span style="opacity:0.7;color:red"><strong> - Name :  {{entry.name}} , Phone :  {{entry.phone}}</strong></span>
+                                          <br>
+
+                                        </mat-list-item>
                                         <div class="row">
                                             <div class="col-xs-12 col-md-6">
                                               <label for="name">Name</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <input type="text" name="name" id="name" value="" tabindex="1"  [(ngModel)]="userData.reference.name" />
                                             </div>
                                             <div class="col-xs-12 col-md-6">
-                                              <label for="name">Occupation</label>
-                                              <input type="text" name="name" id="name" value="" tabindex="1" />
+                                              <label for="name">Phone</label>
+                                              <input type="text" name="name" id="name" value="" tabindex="1"   [(ngModel)]="userData.reference.phone"/>
                                             </div>
                                         </div>
-
-                                        <label for="name">Contact</label>
-                                        <input type="email" name="name" id="name" value="" tabindex="1"    />
                                         <br>
                                         <br>
                                       </div>
-                                      <span class="expand"><button type="button" name="button" style="background:none;float:right;border:none;"><mat-icon style="margin-right:10px;margin-right:20px;border-radius:15px;background-color:#8CC63E">add</mat-icon></button></span>
+                                      <button mat-button  style="width:100%;background-color:#00CCED;color:white;bottom:0;margin-left:16px;" align="center" (click)="addReference()"> ADD REFERENCE</button>
                                       <br>
                                       <br>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('reference')" > Next</button>
+                                  <button mat-button class="back"  (click)="back('reference')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('reference','reference')" > Next</button>
                                 </div>
                               </mat-card>
                         </div>
                           <div class="finish">
                               <mat-card class="card">
-                                <div class="card1"></div><br>
+                                <div class="card1 card6"></div><br>
                                 <h4 align="center" style="opacity:0.8"><strong>Declaration</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
-                                      <h5 align="center" style="line-height: 20px;opacity:0.6">
+                                      <h5 align="center" style="line-height: 20px;opacity:0.6;margin-right:auto;margin-left:auto;display:block">
                                           <strong>
                                           I declare that all the information provided (including any attachments) is complete and
                                           correct to the best of my knowledge. I understand that any false information supplied
                                           could lead to my application being disqualified or my discharge if I am appointed.
                                           </strong>
                                       </h5>
-                                      <span style="margin-top:20px !important;float:right;display:block;margin-right:25px !important"><mat-checkbox ><span style="opacity:0.8">I declear</span></mat-checkbox></span>
+                                      <span style="margin-top:20px !important;float:right;display:block;margin-right:25px !important"><mat-checkbox [(ngModel)]="userData.profile.declaration"><span style="opacity:0.8">I declare</span></mat-checkbox></span>
                                       <br>
                                       <br>
                                       <br>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important ; margin-right:10px">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('reference')" > Finish</button>
+                                  <button mat-button class="back"  (click)="back('finish')">Previous</button>
+                                  <button mat-button class="right-button" (click)="update('finish','finish')" > Finish</button>
                                 </div>
                               </mat-card>
                         </div>
                           <div class="dashboard">
-                              <mat-card class="card">
-                                <div class="card1" style="margin-top:-60px;"></div><br>
-                                <h4 align="center" style="opacity:0.8"><strong>Declaration</strong></h4>
+                              <mat-card class="card" style="margin-top:50px;">
+                                <div class="card1 success"  style="margin-top:-63px;"></div><br>
+                                <h4 align="center" style="opacity:0.8"><strong>Done!</strong></h4>
                                 <hr>
-                                <div class="row" style="width:100% !important">
+                                <div class="row" style="width:100% !important ;margin-left:-7px">
                                 <div class="col-12" >
                                       <h5 align="center" style="line-height: 20px;opacity:0.6">
                                           <strong>
-                                          I declare that all the information provided (including any attachments) is complete and
-                                          correct to the best of my knowledge. I understand that any false information supplied
-                                          could lead to my application being disqualified or my discharge if I am appointed.
+                                          Thank you for completing your registration, your profile will be loaded on our service. We will get back to you if we need more information.
                                           </strong>
                                       </h5>
-                                      <span style="margin-top:20px !important;float:right;display:block;margin-right:25px !important"><mat-checkbox ><span style="opacity:0.8">I declear</span></mat-checkbox></span>
-                                      <br>
                                       <br>
                                       <br>
                                   </div>
-                                  <button mat-button class="signup" style="opacity:0;margin-top:10px !important ; margin-right:10px">Sign out</button>
-                                  <button mat-button class="right-button" (click)="next('dashboard')" > Finish</button>
+                                  <button mat-button  (click)="navigate()" style="width:100%;background-color:#00CCED;color:white;bottom:0;margin-left:16px;" align="center"> Finish</button>
                                 </div>
                               </mat-card>
                         </div>

@@ -20,6 +20,12 @@ mat-toolbar-row{
     color: white;
     background-color: #2C2F32;
 }
+.back{
+  margin-top: 25px;
+  margin-left: 20px;
+  color: white;
+  background-color: #32C671;
+}
 
 
 
@@ -97,9 +103,9 @@ mat-toolbar-row{
 .right-button{
   float:right;
   display: block;
-  margin-right: 20px;
+  /*margin-right: 10px;*/
   margin-top: 25px;
-  background-color: #E0E0E0;
+  background-color: #32C671;
   color: white
 }
 
@@ -108,7 +114,7 @@ mat-toolbar-row{
     margin-right: -40px;
 }*/
 .signup{
-  margin-left: 20px;
+  margin-left: 30px;
   margin-right: 10%;
 }
 .menu-small{
@@ -135,14 +141,45 @@ mat-toolbar-row{
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 80px;
-  width: 110px;
+  height: 70px;
+  width: 100px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   display: block
 }
-
+.card2 {
+    background: url("/assets/form/card2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.card3 {
+    background: url("/assets/form/card3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.card4 {
+    background: url("/assets/form/card4.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.card5 {
+    background: url("/assets/form/card5.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.card6 {
+    background: url("/assets/form/card6.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 90px;
+    width: 120px;
+}
 .strech{
   height: 100%;
 }
@@ -160,6 +197,10 @@ mat-form-field{
     box-sizing: border-box;
     padding-left: 0px;
     padding-right: 0px;
+    /*background-image:url("/assets/rsa.png");*/
+    /*filter: grayscale(100%);*/
+    background-size: contain;
+
     background-color: #EEF3F6;
     /*position: fixed;*/
     /*position: fixed;*/
@@ -188,12 +229,21 @@ mat-form-field{
   .menu-small{
     display: block;
   }
+  .container{
+    background-color:#FFFFFF;
+  }
 
+  .card{
+    border: none !important;
+          box-shadow: 0 0 0 0 !important;
+
+  }
   .logo{
       margin-top: 40px;
       height: 45px;
       margin-left: -5px;
   }
+
   mat-toolbar{
     /*display: none;*/
   }
@@ -220,12 +270,11 @@ mat-form-field{
 }
 
 .card{
-  max-width: 60%;
   margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  max-width: 600px;
+  max-width: 560px;
   /*bottom: 40px;*/
 }
 
@@ -409,6 +458,11 @@ label {
 
 .contact,.contact2,.contact3,.idnumber,.disability,
 .cmrecord,.dismiss,.basic_contact,.physical,
-.preferred,.postal,.matric,.qualifications,.government,.experience,.reference,.finish{
+.preferred,.postal,.matric,.qualifications,.government,.experience,.reference,.finish,.dashboard{
   display: none;
+}
+
+.success{
+  width: 150px !important;
+  background-image: url("/assets/success.png");
 }
