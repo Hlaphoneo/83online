@@ -22,22 +22,20 @@ export class WelcomeComponent implements OnInit {
    }
 
   ngOnInit() {
-     this.firebaseAuth.auth
-    .onAuthStateChanged((user) => {
+     this.firebaseAuth.auth.onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
          this.render = false;
-        console.log(user)
-        this.router.navigateByUrl('/home');
+         this.router.navigateByUrl('/home');
         } else {
           this.render = true;
         }
-    }
+    })
 
   }
 
   continue(){
-    this.router.navigate(["/Home"])
+    this.router.navigate(['/Home'])
   }
   navigate(location : string){
       if(location == "login"){

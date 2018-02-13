@@ -12,6 +12,6 @@ export class PageNotFoundComponent implements OnInit {
   ngOnInit() {
   }
 
-  home(){this.router.navigate(['/welcome'])}
+  home(){this.router.navigate(['/e4aryZC0DD8rt4'])}
 
 }

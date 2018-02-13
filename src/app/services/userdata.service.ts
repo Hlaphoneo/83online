@@ -130,7 +130,7 @@ export class UserdataService {
             }
             return true;
 
-          break;
+
         case "idnumber":
 
           //checking gender
@@ -145,12 +145,12 @@ export class UserdataService {
 
           return true;
 
-          break;
+
         case "disability":
               if(this.profile.about.disability == "")
                 return "Please indicate if you have a disability.";
               return true;
-          break;
+
         case "cmrecord":
               if(this.profile.about.criminalRecord == "")
                 return "Please indicate if you have a criminal record.";
@@ -159,22 +159,22 @@ export class UserdataService {
               if(this.profile.about.workPermit == "")
                 return "Please indicate if you have a work permit.";
               return true;
-          break;
+
         case "dismiss":
               if(this.profile.about.dismissed == "")
                 return "Please indicate if you have been dismissed at least one from a job.";
               return true;
-          break;
+
         case "basic_contact":
               if(this.profile.contact.phone == "" || this.profile.contact.home == "" || this.profile.contact.fax == "")
                   return "Please fill all the fields.";
               return true;
-          break;
+
         case "preferred":
               if(this.profile.contact.preferred == "")
                   return "Please select a preferred method of communication."
               return true;
-          break;
+
         case "physical":
               if(this.profile.contact.physical.line1 == "")
                   return "Please enter address 1.";
@@ -187,7 +187,7 @@ export class UserdataService {
               if(this.profile.contact.physical.zipCode == "")
                   return "Please enter your zip code.";
               return true;
-          break;
+
         case "postal":
               if(this.profile.contact.postal.line1 == "")
                   return "Please enter address 1.";
@@ -195,45 +195,45 @@ export class UserdataService {
                   return "Please enter address 2.";
               if(this.profile.contact.postal.city == "")
                   return "Please enter your city.";
-              if(this.profile.contact.postal.provicne == "")
+              if(this.profile.contact.postal.province == "")
                   return "Please enter your province.";
               if(this.profile.contact.postal.zipCode == "")
                   return "Please enter your zip code.";
               return true;
-          break;
+
         case "matric":
             if(this.profile.education.matric == "")
                   return "Please indicate if you completed your matric.";
             return true;
-          break;
+
         case "qualifications":
               if(this.profile.education.qualifications.length == 0)
                 return "Please add least one qualification ";
               return true;
-          break;
+
         case "government":
             if(this.profile.workExp.question1 == "")
                   return "Please indicate if you currently holding a government position";
             if(this.profile.workExp.question2 == "")
                   return "Please indicate if you are currently available for employment.";
               return true;
-          break;
+
         case "experience":
             if(this.profile.workExp.experience.length == 0)
               return "Please add least one ";
             return true;
-          break;
+
         case "reference":
             if(this.profile.references.list.length == 0)
               return "Please add at least one reference ";
             return true;
-          break;
+
         case "finish":
         console.log(this.profile)
             if(this.profile.declaration == "")
               return "Please accept the declaration to continue";
             return true;
-          break;
+
 
         default:
 

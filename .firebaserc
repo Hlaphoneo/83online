@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "angular-web-application"
+    "default": "angular-web-application",
+    "solitude": "amajobs-2f95a"
   }
 }

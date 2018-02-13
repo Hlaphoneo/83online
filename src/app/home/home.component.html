@@ -2,7 +2,7 @@
 <div layout="row" class="main-container">
     <mat-toolbar class="mat-elevation-z4">
       <mat-toolbar-row>
-          <div class="logo" (click)="navigate('home')" ></div>
+          <div class="logo" (click)="this.router.navigate(['/dashboard'])" ></div>
          <span class="example-spacer"></span>
          <button mat-button class="signup" (click)="signOut()"><mat-icon style="color:#3B9AC4;margin-right:10px;">account_circle</mat-icon> Sign out</button>
        </mat-toolbar-row>

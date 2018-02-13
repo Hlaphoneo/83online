@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
-import {MatTableModule} from '@angular/material/table';
+
 
 
 
@@ -26,6 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
 import {Component} from '@angular/core';
 import { EventsModule } from 'angular4-events';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // ================================================================================ Components/Pages ================================================================================
 
@@ -40,17 +39,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 // ================================================================================ Material design ================================================================================
-
-import {MatSelectModule} from '@angular/material/select';
+;
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -61,6 +58,8 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+
 
 // =============================================================================== Global variables ================================================================================
 
@@ -118,11 +117,8 @@ export const firebaseConfig = {
     MatDatepickerModule,
     MatListModule,
     MatSnackBarModule,
-    MatCheckboxModule,
     MatProgressBarModule,
     MatToolbarModule,
-    MatListModule,
-    MatSelectModule,
     MatCardModule,
     FormsModule,
     MatTableModule,

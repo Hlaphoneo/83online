@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
  ];
 
  //qualifications snapshort
+ index: any;
 
  institution   : any;
  yearObtained  : any;
@@ -69,6 +70,9 @@ export class HomeComponent implements OnInit {
     this.percent = 1;
     this.index = 1;
   }
+
+  ngOnInit() {}
+
 
   addReference(){
     this.userData.addReference();

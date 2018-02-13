@@ -162,6 +162,11 @@ app-welcome{
 }
 .strech{
   height: 100%;
+
+}
+.row .no-float {
+    display: table-cell;
+    float: none;
 }
 
 .container
@@ -190,8 +195,32 @@ app-welcome{
 
 @media (max-width: 613px) {
 
+  .jobs-container{
+    /*position: fixed;*/
+    overflow-y: scroll;
+    position: relative;
+    margin-left: 10px;
+    height: 150vmin !important;
+  }
+  .card > span {
+    margin-left: -16px !important;
+  }
+
+  .max{
+    max-height: 520px;
+  }
   .container{
     position: relative;
+  }
+  .home-message2{
+    display: none;
+  }
+  .home-message{
+    font-size: 35px;
+  }
+
+  .departments{
+    display: none;
   }
 
   .menu-small{
@@ -220,6 +249,7 @@ app-welcome{
   position: relative;
   height: 75vmin;
   margin-top: -10px;
+
 
 }
 .card{
